@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .game-container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            margin-top: 2rem;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin: 20px;
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cell {
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cell:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.05);
+        }
+
+        .winning-cell {
+            animation: winner 1s ease-in-out infinite;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        @keyframes winner {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+        }
+
+        .status {
+            font-size: 24px;
+            margin: 20px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .reset-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .reset-btn:hover {
+            background-color: rgba(76, 175, 80, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="game-container">
+    <h1>Tic Tac Toe</h1>
+    <div class="status" id="status">Your turn (X)</div>
+    <div class="board" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+    <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+</div>
+
+<script>
+    let gameBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let isPlayerTurn = true;
+
+    document.querySelectorAll('.cell').forEach(cell => {
+        cell.addEventListener('click', handleCellClick);
+    });
+
+    function handleCellClick(event) {
+        if (!isPlayerTurn) return;
+
+        const index = parseInt(event.target.dataset.index);
+        if (gameBoard[index] !== 0) return;
+
+        // Player's move (X = 1)
+        gameBoard[index] = 1;
+        event.target.textContent = 'X';
+        isPlayerTurn = false;
+
+        // Check for game over conditions
+        if (checkGameOver()) return;
+
+        // AI's turn
+        makeAIMove();
+    }
+
+    async function makeAIMove() {
+        try {
+            const response = await fetch('http://localhost:8080/api/ai/openai/nextMove', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    board: gameBoard
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            //console.log('Response:', response.json()); // Debug log
+            const data = await response.json();
+            //console.log('API Response:', data); // Debug log
+
+            // Parse the response string if it's a string
+            let aiBoard;
+            if (typeof data.response === 'string') {
+                console.log('Response is a string:', data.response); // Debug log
+                aiBoard = JSON.parse(data.response).boardAfterMove;
+            } else {
+                console.log('Object', data.response); // Debug log
+                aiBoard = data.boardAfterMove;
+            }
+
+            // Update the board with AI's move (O = 2)
+            for (let i = 0; i < 9; i++) {
+                if (aiBoard[i] !== gameBoard[i]) {
+                    gameBoard[i] = aiBoard[i];
+                    document.querySelector(`[data-index="${i}"]`).textContent = 'O';
+                    break;
+                }
+            }
+
+            isPlayerTurn = true;
+
+            // Check for game over conditions
+            checkGameOver();
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('status').textContent = 'Error making AI move';
+            isPlayerTurn = true;
+        }
+    }
+
+    function checkGameOver() {
+        // Check rows, columns and diagonals
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+            [0, 4, 8], [2, 4, 6] // diagonals
+        ];
+
+        for (let pattern of winPatterns) {
+            if (gameBoard[pattern[0]] !== 0 &&
+                gameBoard[pattern[0]] === gameBoard[pattern[1]] &&
+                gameBoard[pattern[1]] === gameBoard[pattern[2]]) {
+                const winner = gameBoard[pattern[0]] === 1 ? 'X' : 'O';
+                document.getElementById('status').textContent = `Player ${winner} wins!`;
+
+                // Add winning animation to the winning cells
+                pattern.forEach(index => {
+                    document.querySelector(`[data-index="${index}"]`).classList.add('winning-cell');
+                });
+
+                return true;
+            }
+        }
+
+        // Check for draw
+        if (!gameBoard.includes(0)) {
+            document.getElementById('status').textContent = "It's a draw!";
+            return true;
+        }
+
+        return false;
+    }
+
+    function resetGame() {
+        gameBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        isPlayerTurn = true;
+        document.querySelectorAll('.cell').forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('winning-cell');
+        });
+        document.getElementById('status').textContent = 'Your turn (X)';
+    }
+
+    // Add particle animation
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            // Random size between 5 and 15 pixels
+            const size = Math.random() * 10 + 5;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            // Random starting position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.bottom = `-${size}px`;
+
+            // Random animation duration between 4 and 8 seconds
+            particle.style.animationDuration = `${Math.random() * 4 + 4}s`;
+
+            // Random delay
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Initialize particles when the page loads
+    window.addEventListener('load', createParticles);
+</script>
+</body>
+</html> 
