@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.coditas.GenAI_Java.PromptConstants.TIC_TAC_TOE_PROMPT;
+import static com.coditas.GenAI_Java.utils.PromptConstants.TIC_TAC_TOE_PROMPT;
 
 @RestController
 @RequestMapping("/api/ai")
@@ -40,4 +40,8 @@ public class AIController {
             return ResponseEntity.badRequest().body(errorResponse);
         }
     }
+
+
+
+
 }

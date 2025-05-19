@@ -1,4 +1,4 @@
-package com.coditas.GenAI_Java;
+package com.coditas.GenAI_Java.utils;
 
 public class PromptConstants {
 
