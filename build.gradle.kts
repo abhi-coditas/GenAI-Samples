@@ -29,6 +29,8 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.0")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
 
+    implementation("org.jsoup:jsoup:1.20.1")
+
 }
 
 dependencyManagement {

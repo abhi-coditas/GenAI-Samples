@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Logs</title>
+    <style>
+        body { font-family: monospace; background-color: #f8f8f8; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #4CAF50; color: white; text-align: left; padding: 10px; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        td { padding: 8px; vertical-align: top; border-bottom: 1px solid #ddd; }
+        .timestamp { color: #1565C0; white-space: nowrap; width: 180px; }
+        .message { word-break: break-all; }
+        .header { background-color: #333; color: white; padding: 10px; margin-bottom: 20px; }
+        pre { margin: 0; white-space: pre-wrap; }
+        .request-block, .response-block {
+          margin: 5px 0;
+          padding: 5px;
+          background-color: #f9f9f9;
+          border-left: 4px solid #4CAF50;
+        }
+        .error { color: #D32F2F; }
+        .warning { color: #FFA000; }
+        .success { color: #2E7D32; }
+        .request { border-left: 4px solid #FFA000; padding-left: 8px; }
+        .response-success { border-left: 4px solid #2E7D32; padding-left: 8px; }
+        .response-warning { border-left: 4px solid #FFA000; padding-left: 8px; }
+        .response-error { border-left: 4px solid #D32F2F; padding-left: 8px; }
+        .request-block { border-left: 4px solid #FFA000; }
+        .response-block-success { border-left: 4px solid #2E7D32; }
+        .response-block-warning { border-left: 4px solid #FFA000; }
+        .response-block-error { border-left: 4px solid #D32F2F; }
+        .client-info { margin: 10px 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>SOCKET LOGS</h1>
+    <p>Started: 2025-05-13 12:45:32.988878</p>
+    <p>See metadata.txt file for client information</p>
+</div>
+<table>
+    <tr>
+        <th>Timestamp</th>
+        <th>Message</th>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:28</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;os&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:28</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;amsg&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;cn&quot;,&quot;channel&quot;:&quot;&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;os&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;amsg&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;cn&quot;,&quot;channel&quot;:&quot;&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="success response-success">[RESPONSE] [{msg: connected, task: cn, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="success response-success">[RESPONSE] [{msg: orderstatus, task: os, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="success response-success">[RESPONSE] [{msg: adminmsg, task: amsg, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:30</td>
+        <td class="success response-success">[RESPONSE] [{msg: connected, task: cn, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:32</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13/05/2025 12:47:32, name: tm}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:32</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13/05/2025 12:47:33, name: tm}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:33</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;sfi&quot;,&quot;channel&quot;:&quot;nse_cm|Nifty 50&amp;bse_cm|SENSEX&amp;ncx_fo|FUTEXAGRI&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:33</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13/05/2025 12:47:34, name: tm}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:33</td>
+        <td class="success response-success">[RESPONSE] [{iov: 19064.05, ilv: 19019.65, tvalue: null, e: nse_cm, nc: 29.17, ihv: 19096.05, tk: Nifty 50, name: if, ic: 19079.6, ak: ok, iv: 24645.0, cng: 5565.40}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{iov: 63829.87, ilv: 63647.75, tvalue: null, e: bse_cm, nc: 27.31, ihv: 63896.05, tk: SENSEX, name: if, ic: 63874.93, ak: ok, iv: 81320.6, cng: 17445.67}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{iov: 0.0, ilv: 0.0, e: ncx_fo, ihv: 0.0, tk: FUTEXAGRI, name: if, ic: 0.0, ak: ok, iv: 0.0}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{msg: sfi, task: sfi, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;mw&quot;,&quot;channel&quot;:&quot;nse_cm|22&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="message request">[REQUEST] {&quot;acctid&quot;:&quot;MOBTEST3&quot;,&quot;user&quot;:&quot;MOBTEST3&quot;,&quot;token&quot;:&quot;7535768228&quot;,&quot;task&quot;:&quot;mw&quot;,&quot;channel&quot;:&quot;bse_cm|500483&quot;}</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{tbq: 46356, lo: 1873.05, bp: 1876.55, yh: 2844.00, bq: 46, toi: 14235900, bs: 5, tsq: 41333, yl: 1778.45, lcl: 2233.90, mc: 35457.99100 (Crs), isdc: 18.77873 (Crs), setltyp: T+1, sp: 1877.45, cng: -10.80, ucl: 2730.30, ut: 01-Nov-2023 10:26:21, op: 1890.00, c: 1888.20, e: nse_cm, h: 1897.35, ltq: 4, ltp: 1877.40, ak: ok, ltt: 13/05/2025 12:03:27, ap: 1880.80, nc: -00.57, v: 472874, tk: 22, name: sf, to: 889381419.20, ts: ACC-EQ}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{msg: mw, task: mw, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{tbq: 31807, lo: 1654.85, bp: 1658.80, yh: 2175.00, bq: 7, bs: 37, tsq: 37265, yl: 1293.00, lcl: 1497.15, mc: 47409.75000 (Crs), isdc: 28.50000 (Crs), setltyp: T+1, sp: 1660.95, cng: -04.50, ucl: 1829.85, ut: 01-Nov-2023 09:49:53, op: 1678.25, c: 1663.50, e: bse_cm, h: 1678.25, ltq: 4, ltp: 1659.00, ak: ok, ltt: 01/11/2023 10:03:31, ap: 1661.69, nc: -00.27, v: 2869, tk: 500483, name: sf, to: 4767388.61, ts: TATACOMM}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{msg: mw, task: mw, ak: ok}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{bs: 37, tbq: 31807, tsq: 37265, e: bse_cm, tk: 500483, name: sf, sp: 1660.95, bp: 1658.80, ut: 01-Nov-2023 09:49:53}, {tbq: 16053, tsq: 15838, e: bse_cm, tk: 500483, name: sf, bp: 1559.45, ut: 13-May-2025 12:04:08:455}, {tbq: 46516, tsq: 41396, e: nse_cm, tk: 22, name: sf, ltp: 1877.95, sp: 1877.95, bp: 1877.30, ut: 01-Nov-2023 10:28:03}, {tbq: 15712, tsq: 14445, e: bse_cm, tk: 500483, name: sf, sp: 1570.45, ut: 13-May-2025 10:54:43:737}, {bs: 30, e: nse_cm, v: 39572, tk: 22, name: sf, ltq: 1, to: 74405648.72, ltt: 01/11/2023 10:27:59, bq: 3, ap: 1880.26, ut: 01-Nov-2023 10:28:03}, {bs: 17, tbq: 15481, tsq: 15791, e: bse_cm, tk: 500483, name: sf, sp: 1560.95, ut: 13-May-2025 12:04:08:860}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:34</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13-May-2025 11:01:22, e: nse_cm, nc: 29.76, tk: Nifty 50, name: if, iv: 24758.55, cng: 5678.95, ut: 13-May-2025 11:01:22}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13-May-2025 12:45:00, e: nse_cm, nc: 29.17, tk: Nifty 50, name: if, iv: 24644.50, cng: 5564.90, ut: 13-May-2025 12:45:00}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 01-Nov-2023 09:49:40, e: nse_cm, nc: -00.13, tk: Nifty 50, name: if, iv: 19055.45, cng: -24.15, ut: 01-Nov-2023 09:49:40}, {tvalue: 13-May-2025 12:04:09, e: bse_cm, nc: 27.69, tk: SENSEX, name: if, iv: 81563.76, cng: 17688.83, ut: 13-May-2025 12:04:09}, {tvalue: 13-May-2025 12:45:00, e: bse_cm, nc: 27.31, tk: SENSEX, name: if, iv: 81320.39, cng: 17445.46, ut: 13-May-2025 12:45:00}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tbq: 31921, c: 1663.50, lo: 1654.85, e: bse_cm, h: 1678.25, ltp: 1659.00, bp: 1657.30, bs: 61, tsq: 36841, nc: -00.27, tk: 500483, name: sf, sp: 1659.00, cng: -04.50, ut: 01-Nov-2023 10:03:38}, {tvalue: 01-Nov-2023 10:03:38, e: nse_cm, nc: -00.30, tk: Nifty 50, name: if, iv: 19023.30, cng: -56.30, ut: 01-Nov-2023 10:03:38}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 01-Nov-2023 10:03:38, e: nse_cm, nc: -00.30, tk: Nifty 50, name: if, ic: 19079.60, iv: 19023.30, cng: -56.30, ut: 01-Nov-2023 10:03:38}, {tbq: 31921, c: 1663.50, lo: 1654.85, e: bse_cm, ltq: 4, h: 1678.25, ltp: 1659.00, ltt: 01/11/2023 10:03:31, bp: 1657.30, bq: 18, ap: 1661.69, bs: 61, tsq: 36841, nc: -00.27, v: 2869, tk: 500483, name: sf, to: 4767388.61, sp: 1659.00, cng: -04.50, ut: 01-Nov-2023 10:03:38}, {tvalue: 13-May-2025 12:03:28, e: nse_cm, nc: 29.46, tk: Nifty 50, name: if, iv: 24701.05, cng: 5621.45, ut: 13-May-2025 12:03:28}, {bs: 15, tbq: 15942, tsq: 15522, e: bse_cm, tk: 500483, name: sf, sp: 1560.90, ut: 13-May-2025 12:04:09:714}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 01-Nov-2023 09:49:40, e: nse_cm, nc: -00.13, tk: Nifty 50, name: if, iv: 19055.45, cng: -24.15, ut: 01-Nov-2023 09:49:40}, {tvalue: 13-May-2025 11:38:24, e: nse_cm, nc: 29.78, tk: Nifty 50, name: if, iv: 24761.50, cng: 5681.90, ut: 13-May-2025 11:38:24}, {bs: 21, tbq: 17932, tsq: 15707, e: bse_cm, tk: 500483, name: sf, sp: 1555.95, ut: 13-May-2025 12:45:00:877}, {tbq: 85591, tsq: 79392, e: nse_cm, tk: 22, name: sf, ut: 13-May-2025 12:45:00}, {tvalue: 13-May-2025 12:45:00, e: nse_cm, nc: 29.14, tk: Nifty 50, name: if, iv: 24640.15, cng: 5560.55, ut: 13-May-2025 12:45:00}, {tbq: 44063, c: 1888.20, lo: 1873.05, e: nse_cm, h: 1897.35, ltp: 1874.05, bp: 1874.00, bq: 112, tsq: 39776, nc: -00.75, tk: 22, name: sf, sp: 1874.85, cng: -14.15, ut: 01-Nov-2023 10:03:37}, {tvalue: 13/05/2025 12:47:36, name: tm}, {tbq: 44063, c: 1888.20, lo: 1873.05, e: nse_cm, ltq: 4, h: 1897.35, ltp: 1874.05, ltt: 01/11/2023 10:03:34, bp: 1874.00, bq: 112, ap: 1880.80, bs: 7, tsq: 39776, nc: -00.75, v: 31730, tk: 22, name: sf, to: 59677784.00, sp: 1874.85, cng: -14.15, ut: 01-Nov-2023 10:03:37}, {tbq: 73787, e: nse_cm, ltp: 1865.90, ltt: 13/05/2025 11:08:22, bp: 1864.60, bs: 2, tsq: 73593, v: 442236, tk: 22, name: sf, to: 831757468.80, sp: 1865.80, ut: 13-May-2025 11:08:22}, {tbq: 16079, tsq: 15327, e: bse_cm, tk: 500483, name: sf, sp: 1561.20, bq: 4, ut: 13-May-2025 12:04:10:119}, {tvalue: 13-May-2025 11:08:22, e: nse_cm, nc: 29.87, tk: Nifty 50, name: if, iv: 24779.25, cng: 5699.65, ut: 13-May-2025 11:08:22}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:35</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13-May-2025 12:04:10, e: bse_cm, nc: 27.70, tk: SENSEX, name: if, iv: 81566.22, cng: 17691.29, ut: 13-May-2025 12:04:10}, {bs: 1, tbq: 80641, tsq: 74731, e: nse_cm, tk: 22, name: sf, sp: 1863.70, ut: 13-May-2025 12:03:28}, {tvalue: 01-Nov-2023 09:49:54, e: bse_cm, nc: -00.18, tk: SENSEX, name: if, iv: 63760.80, cng: -114.13, ut: 01-Nov-2023 09:49:54}, {tvalue: 13-May-2025 12:03:28, e: nse_cm, nc: 29.46, tk: Nifty 50, name: if, iv: 24701.35, cng: 5621.75, ut: 13-May-2025 12:03:28}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:36</td>
+        <td class="success response-success">[RESPONSE] [{e: nse_cm, tk: 22, name: sf, ut: 13-May-2025 11:08:23}, {bs: 24, tbq: 15817, tsq: 15841, e: bse_cm, tk: 500483, name: sf, bp: 1559.40, bq: 2, ut: 13-May-2025 12:04:10:972}, {bs: 37, tbq: 31807, tsq: 37265, e: bse_cm, tk: 500483, name: sf, sp: 1660.95, bp: 1658.80, bq: 21, ut: 01-Nov-2023 09:49:54}, {tsq: 15679, e: bse_cm, tk: 500483, name: sf, ltt: 13/05/2025 12:44:55, ut: 13-May-2025 12:45:01:322}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:36</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13-May-2025 12:45:01, e: nse_cm, nc: 29.17, tk: Nifty 50, name: if, iv: 24644.20, cng: 5564.60, ut: 13-May-2025 12:45:01}]</td>
+    </tr>
+    <tr>
+        <td class="timestamp">2025-05-13 12:47:36</td>
+        <td class="success response-success">[RESPONSE] [{tvalue: 13-May-2025 11:21:07, e: nse_cm, nc: 29.84, tk: Nifty 50, name: if, iv: 24773.65, cng: 5694.05, ut: 13-May-2025 11:21:07}, {tbq: 15853, tsq: 15868, e: bse_cm, tk: 500483, name: sf, ut: 13-May-2025 12:04:11:377}]</td>
+    </tr>
+</table>
+<div class="header" style="margin-top: 20px;">
+    <p>Log end: 2025-05-13 12:47:36.471669</p>
+</div>
+</body>
+</html>
+  
